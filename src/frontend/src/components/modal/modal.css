@@ -1,0 +1,29 @@
+    .modal {
+        background-color: #fff;
+        width: 50%;
+        height: 75%;
+        border: 1px solid rgb(179, 179, 179);
+        border-radius: 15px;
+        overflow: hidden;
+        padding: 1rem;
+    }
+
+    .modal .header {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .modal-wrapper {
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgba(107, 114, 128, 0.5);
+        z-index: 9;
+        width: 100%;
+        min-height: 100vh;
+    }

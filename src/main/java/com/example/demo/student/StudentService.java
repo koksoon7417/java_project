@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -42,9 +43,12 @@ public class StudentService {
 
 
     @Transactional
-    public void updateStudent(Long studentId, String name, String email) {
+    public void updateStudent(Long studentId, Student updateStudent) {
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(()-> new IllegalStateException("student with id " + studentId + " does not exists"));
+        String name = updateStudent.getName();
+        String email = updateStudent.getEmail();
+        LocalDate dob = updateStudent.getDob();
 
         if(name != null &&
                 name.length() > 0 &&
@@ -59,5 +63,8 @@ public class StudentService {
 
             student.setEmail(email);
         }
+
+        if(dob != null &&
+                !Objects.equals(student.getDob(), dob)) student.setDob(dob);
     }
 }

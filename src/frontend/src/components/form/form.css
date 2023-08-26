@@ -1,0 +1,12 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    padding: 0.5rem;
+}
+
+label {
+    padding-block: 0.5rem;
+}
